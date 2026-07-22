@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pong Arena</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div>
+        <p class="eyebrow">V2 · MULTIPLAYER · 2–4 SPIELER</p>
+        <h1>Pong Arena</h1>
+      </div>
+      <div id="connection" class="pill">Verbinde …</div>
+    </header>
+
+    <section id="home" class="panel home-grid">
+      <div>
+        <h2>Vier Seiten. Ein Ball. Eine letzte Wand.</h2>
+        <p>Erstelle einen privaten Raum oder tritt mit einem fünfstelligen Code bei.</p>
+      </div>
+      <div class="form-card">
+        <label>Spielername<input id="name" maxlength="18" value="Spieler" /></label>
+        <button id="create" class="primary">Raum erstellen</button>
+        <div class="divider"><span>oder</span></div>
+        <label>Raumcode<input id="code" maxlength="5" placeholder="ABCDE" /></label>
+        <button id="join">Raum beitreten</button>
+        <p id="error" class="error"></p>
+      </div>
+    </section>
+
+    <section id="game" class="hidden">
+      <div class="game-layout">
+        <aside class="panel sidebar">
+          <p class="eyebrow">RAUM</p>
+          <div class="room-row"><strong id="roomCode">-----</strong><button id="copy" class="small">Kopieren</button></div>
+          <p id="statusText">Warte auf Spieler …</p>
+          <div id="players" class="players"></div>
+          <div class="action-grid"><button id="ready" class="primary">Bereit</button><button id="addBot">Bot hinzufügen</button></div>
+          <button id="leave" class="ghost">Raum verlassen</button>
+          <p id="gameError" class="error"></p>
+          <p class="hint">Steuerung: Pfeiltasten oder A/D. Auf Touch-Geräten die linke oder rechte Hälfte des Spielfelds drücken.</p>
+        </aside>
+        <div class="arena-wrap">
+          <canvas id="arena" width="800" height="800"></canvas>
+          <div id="overlay" class="overlay hidden"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="/game.js"></script>
+</body>
+</html>
