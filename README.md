@@ -1,4 +1,4 @@
-# Pong Arena V2
+# PongWars
 
 Browserbasiertes Echtzeit-Pong für 2 bis 4 Spieler.
 
